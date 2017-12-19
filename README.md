@@ -20,19 +20,12 @@ Tested on:
 ```
 $ mkdir test_project && cd $_
 $ git clone https://github.com/beatum/kvadrait.git
-$
 ```
 
-#### Initialize ```virtualenv``` if needed:
+#### Initialize ```virtualenv``` if needed! Different ways:
 ```
 $ virtualenv -p python3.6 {path}
-
-or
-
 $ virtualenv -p /usr/bin/python3.6 {path}
-
-or
-
 $ python3.6 -m venv /path/to/new/virtual/environment
 ```
 
