@@ -1,4 +1,4 @@
-# TEST CASE / FOR DVEBUKVY
+# TEST CASE / FOR KVADRA-IT
 
 This project is scaffolded by Ivan Semernyakov <direct@beatum-group.ru>
 
@@ -18,8 +18,9 @@ Tested on:
 
 #### Clone project:
 ```
-$ mkdir testproject && cd $_
+$ mkdir test_project && cd $_
 $ git clone https://github.com/beatum/kvadrait.git
+$
 ```
 
 #### Initialize ```virtualenv``` if needed:
@@ -42,7 +43,7 @@ $ source {virtualenv_path}/bin/activate
 
 #### Install ```pip``` dependencies using ```./requirements.txt``` they are not already installed:
 ```
-$ cd project
+$ cd kvadrait
 $ pip install -r requirements.txt
 ```
 
