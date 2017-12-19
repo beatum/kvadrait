@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container mt-4">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link{% if request.path == '/' %} active{% endif %}" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link{% if request.path == '/send/' %} active{% endif %}" href="{% url 'send' %}">Send</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link{% if request.path == '/view/' %} active{% endif %}" href="{% url 'view' %}">View</a>
+            </li>
+          </ul>
+        </nav>
+        <h1 class="text-muted">Hello KVADRA-IT TEAM!</h1>
+      </div>
+
+      <div class="jumbotron mt-4">
+        {% block base %}
+        <h1 class="display-3">Developed for KVADRA-IT.</h1>
+        <p class="lead"><span class="text-uppercase">In this test case presents</span>: Django 2.0 and djangorestframework 3.7.3 - will be play together! As you can see Bootstrap framework 4.0.0-alpha.6 and jquery 3.2.1 also included.</p>
+            <p>Designed and built with all the love in the digital world by <a href="mailto:direct@beatum-group.ru">@beatum</a> - Ivan Semernyakov.</p></p>
+        <p><a class="btn btn-lg btn-success" href="{% url 'send' %}" role="button">Start</a></p>
+        {% endblock base %}
+      </div>
+
+
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+    {% block script %}
+    {% endblock %}
+  </body>
+</html>

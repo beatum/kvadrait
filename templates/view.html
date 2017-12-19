@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+  <script type="text/javascript">
+    console.log(data)
+  </script>
+{% block base %}
+  <h1>Text List</h1>
+  <ul>
+    {% for item in objects %}
+      <li>{{ item.txt }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

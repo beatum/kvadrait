@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block base %}
+  <h1>Send Text</h1>
+  <form id="sendTxt" method="post">{% csrf_token %}
+    <div class="form-group">
+      <label for="txt">New Text</label>
+      <input name="txt" placeholder="Type something..." class="form-control"
+             id="txt"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="pt-3" id="results"><p class="text-info"><b>Results:</b></p></div>
+  </form>
+{% endblock %}
+
+{% block script %}
+  <script type="text/javascript">
+      $(document).ready(function () {
+          // process the form
+          $('#sendTxt').submit(function (event) {
+              $('#results').val('');
+              // get the form data
+              var formData = {
+                  'txt': $('input[name=txt]').val(),
+              };
+              $.ajax({
+                  type: 'POST',
+                  url: 'http://localhost:8000/api/txt/',
+                  data: formData,
+                  dataType: 'json',
+                  encode: true,
+                  success: function (data) {
+                      console.info('Success: ', data),
+                          $('input[name=txt]').val(''),
+                          $('#results').append('<p>' + '<strong class="text-success">Success:</strong> ' +
+                              ' id: ' + data.id + ' txt: ' + data.txt + '</p>')
+
+                  },
+                  error: function (errors) {
+                      console.log('Errors: ', errors);
+                      $('#results').append('<p>' + '<strong class="text-danger">Errors:</strong> ' +
+                          errors.status + ' ' + errors.statusText + ', ' + 'Text can\'t be blank!' + '</p>')
+                  }
+              });
+              // stop the form from submitting the normal way and refreshing the page
+              event.preventDefault();
+          });
+      });
+  </script>
+{% endblock %}
